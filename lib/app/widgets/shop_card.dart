@@ -1,0 +1,43 @@
+import 'package:flutter/material.dart';
+
+class ShopCard extends StatelessWidget {
+  final String categoryName;
+  final String imagePath;
+  final int numberOfItems;
+
+  ShopCard({this.numberOfItems, this.imagePath, this.categoryName});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+        child: Row(
+          children: <Widget>[
+            Image(
+              image: AssetImage(imagePath),
+              height: 65.0,
+              width: 65.0,
+            ),
+            SizedBox(
+              width: 2.0,
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  categoryName,
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+                ),
+                Text(
+                  " $numberOfItems  Kinds",
+                  style: TextStyle(fontSize: 13.0),
+                )
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
